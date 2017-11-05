@@ -23,12 +23,22 @@ build:
   # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     # A step that executes `npm install` command
-    - npm-install
+#    - npm-install
     # A step that executes `npm test` command
 #    - npm-test
 
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
+    - script:
+        name: Install YARN
+        code: |
+          npm i -g yarn
+
+    - script:
+        name: Install Dependencies
+        code: |
+          yarn
+
     - script:
         name: Run build
         code: |
