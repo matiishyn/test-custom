@@ -3,7 +3,7 @@ import {NgModule} from "@angular/core";
 import {CustomWebsiteWrapperComponent} from "./components/custom-website-wrapper/custom-website-wrapper.component";
 
 const routes: Routes = [
-  {path: '', component: CustomWebsiteWrapperComponent}
+  {path: ':accessCode', component: CustomWebsiteWrapperComponent}
 ];
 
 @NgModule({
