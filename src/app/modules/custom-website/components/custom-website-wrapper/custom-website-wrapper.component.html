@@ -1,4 +1,11 @@
-<p>
-  custom-website-wrapper works!<br>
-  here:{{app$}}<br>
-</p>
+<div class="container-fluid">
+  <app-navigation [app]="app"></app-navigation>
+
+  <div class="main">
+    <app-canvas></app-canvas>
+  </div>
+
+</div>
+
+<app-footer></app-footer>
+<hr>

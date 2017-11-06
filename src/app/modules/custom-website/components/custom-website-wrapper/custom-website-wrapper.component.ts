@@ -20,10 +20,17 @@ export class CustomWebsiteWrapperComponent implements OnInit {
 
   ngOnInit() {
     const accessCode = this.route.snapshot.params['accessCode'];
-    console.log(accessCode);
+
     this.app$ = this.appService.getAppByAccessCode(accessCode).valueChanges();
-    this.app$.subscribe(app => {
-      this.app = app;
+    this.app$.subscribe(foundApps => {
+      if (foundApps.length) {
+        this.app = foundApps[0];
+      } else {
+        // NOT FOUND
+        this.router.navigate(['/not-found']);
+      }
+
+      console.log(this.app);
     });
   }
 
